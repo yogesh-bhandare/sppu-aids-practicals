@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Help Desk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1c1c1c;
+            color: #f0f0f0;
+        }
+
+        h1 {
+            color: #f0f0f0;
+            text-align: center;
+        }
+
+        #chat-container {
+            background-color: #2b2b2b;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 10px;
+            background-color: #1e1e1e;
+        }
+
+        #user-input {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+            background-color: #333;
+            color: #f0f0f0;
+            border: 1px solid #444;
+            border-radius: 5px;
+        }
+
+        #send-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #send-button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .user-message {
+            background-color: #0056b3;
+            text-align: right;
+            color: white;
+        }
+
+        .bot-message {
+            background-color: #333;
+            text-align: left;
+            color: #f0f0f0;
+        }
+
+        .bot-message img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        #chat-container img {
+            display: block;
+            margin: 0 auto 20px auto;
+            width: 100px;
+            height: auto;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hospital Help Desk</h1>
+
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <input type="text" id="user-input" placeholder="Type your question here...">
+        <button id="send-button">Send</button>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        function addMessage(message, isUser = false) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.classList.add(isUser ? 'user-message' : 'bot-message');
+
+
+            const textNode = document.createTextNode(message);
+            messageElement.appendChild(textNode);
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const message = userInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                userInput.value = '';
+
+                try {
+                    const response = await fetch('http://127.0.0.1:5000/api/helpdesk', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ problem: message }),
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        addMessage(data.solution);
+                    } else {
+                        addMessage('Sorry, there was an error processing your request.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    addMessage('Sorry, there was an error processing your request.');
+                }
+            }
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Initial greeting
+        addMessage('Welcome to our hotel help desk! How may I assist you today?');
+    </script>
+</body>
+
+</html>

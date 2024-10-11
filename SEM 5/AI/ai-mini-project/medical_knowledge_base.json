@@ -1,0 +1,72 @@
+{
+  "issues": [
+    {
+      "problem": "appointment scheduling",
+      "solution": "To schedule an appointment, please visit our website or call our front desk. Provide the patient's name, preferred doctor, and available time slots."
+    },
+    {
+      "problem": "check-in process",
+      "solution": "Please arrive 15 minutes before your scheduled appointment with a valid ID, insurance card, and any required paperwork. For new patients, we recommend filling out registration forms online in advance."
+    },
+    {
+      "problem": "check-out process",
+      "solution": "After your consultation, visit the front desk to schedule follow-up appointments and settle any co-payments. You may also receive a prescription or instructions for further care."
+    },
+    {
+      "problem": "emergency services",
+      "solution": "For emergencies, please go to our Emergency Department, which operates 24/7. Our medical team is prepared to handle urgent cases and provide immediate care."
+    },
+    {
+      "problem": "prescription refills",
+      "solution": "To request a prescription refill, contact your doctor’s office directly or use our online portal. Please allow 24-48 hours for processing."
+    },
+    {
+      "problem": "medical records",
+      "solution": "To request a copy of your medical records, contact the Medical Records Department at extension 7890 or submit a request through our online patient portal."
+    },
+    {
+      "problem": "insurance coverage",
+      "solution": "We accept most major insurance plans. For inquiries about coverage, please contact our billing department or your insurance provider before your visit."
+    },
+    {
+      "problem": "billing inquiry",
+      "solution": "For any billing-related questions, please visit the billing office or call extension 4567. Have your patient ID and billing details ready for reference."
+    },
+    {
+      "problem": "visiting hours",
+      "solution": "General visiting hours are from 9:00 AM to 8:00 PM. For patients in critical care, please contact the department for specific visitation guidelines."
+    },
+    {
+      "problem": "surgical procedure",
+      "solution": "Before a surgical procedure, you will receive instructions from your doctor. This includes fasting guidelines, pre-operative care, and what to bring with you on the day of surgery."
+    },
+    {
+      "problem": "post-surgery recovery",
+      "solution": "After surgery, our medical team will monitor your recovery. You will receive instructions for at-home care, follow-up appointments, and any medications you may need."
+    },
+    {
+      "problem": "pharmacy services",
+      "solution": "Our in-house pharmacy is open from 8:00 AM to 6:00 PM. You can fill prescriptions after your visit. Contact the pharmacy at extension 1234 for any medication-related inquiries."
+    },
+    {
+      "problem": "parking",
+      "solution": "Parking is available for patients and visitors in the designated parking lot. We offer both valet and self-parking options. Please bring your parking ticket to the front desk for validation."
+    },
+    {
+      "problem": "wheelchair assistance",
+      "solution": "Wheelchair assistance is available at all entrances. If you need help upon arrival, please notify the front desk or call extension 5555 for assistance."
+    },
+    {
+      "problem": "discharge process",
+      "solution": "Once your doctor has approved your discharge, our care team will provide instructions for at-home care, medications, and any follow-up appointments."
+    },
+    {
+      "problem": "exit",
+      "solution": "Thank you for choosing our hospital. If you need further assistance, feel free to contact us or visit our website for more information."
+    },
+    {
+      "problem": "Hi",
+      "solution": "Welcome to our hospital help desk! How may we assist you today?"
+    }
+  ]
+}
