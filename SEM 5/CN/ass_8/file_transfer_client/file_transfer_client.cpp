@@ -2,12 +2,12 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <fstream>
-#pragma comment(lib, "ws2_32.lib")  // Link with Winsock library
+#pragma comment(lib, "ws2_32.lib")  
 
 void start_client() {
-    const char* host = "127.0.0.1";  // Server address (localhost)
-    const int port = 65432;          // Port used by the server
-    const char* filename = "file_to_send.txt";  // Replace with the file you want to send
+    const char* host = "127.0.0.1";  
+    const int port = 65432;          
+    const char* filename = "file_to_send1.txt";  
     WSADATA wsaData;
     SOCKET clientSocket;
 

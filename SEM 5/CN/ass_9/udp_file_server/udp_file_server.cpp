@@ -11,8 +11,8 @@
 #define BUFFER_SIZE 1024
 
 void start_server() {
-    const char* host = "127.0.0.1";  // Localhost
-    int port = 65432;                // Port to listen on
+    const char* host = "127.0.0.1";  
+    int port = 65432;                
 
     // Initialize Winsock
     WSADATA wsaData;

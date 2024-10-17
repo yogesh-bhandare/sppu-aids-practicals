@@ -130,7 +130,7 @@
     <ClCompile Include="file_transfer_client.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="file_to_send.txt" />
+    <Text Include="file_to_send1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="file_to_send.txt">
+    <Text Include="file_to_send1.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>

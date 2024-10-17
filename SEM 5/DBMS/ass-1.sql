@@ -13,6 +13,8 @@ CREATE TABLE Employees (
     emp_dept VARCHAR(50)
 );
 
+drop table Employees;
+
 -- 3. Create a View
 CREATE VIEW EmployeeDetails AS
 SELECT emp_name, emp_salary, emp_dept
@@ -61,4 +63,5 @@ WHERE emp_salary > 60000;
 SELECT emp_name, UPPER(emp_dept) AS Department, ROUND(emp_salary, 0) AS Salary
 FROM Employees;
 
+truncate table companyDB;
 

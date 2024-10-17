@@ -83,7 +83,6 @@ unordered_map<char, int> bellmanFord(const unordered_map<char, unordered_map<cha
 }
 
 int main() {
-    // Graph definition
     unordered_map<char, unordered_map<char, int>> graph = {
         {'A', {{'B', 5}, {'C', 10}}},
         {'B', {{'A', 5}, {'C', 3}, {'D', 9}}},
@@ -93,14 +92,12 @@ int main() {
 
     char start_node = 'A';
 
-    // Compute shortest paths using Dijkstra's algorithm
     auto distances = dijkstra(graph, start_node);
     cout << "Shortest paths from " << start_node << " (Link State Routing - Dijkstra's Algorithm):" << endl;
     for (const auto& pair : distances) {
         cout << "To " << pair.first << ": " << pair.second << endl;
     }
 
-    // Compute shortest paths using Bellman-Ford algorithm
     try {
         auto distances_bf = bellmanFord(graph, start_node);
         cout << "\nShortest paths from " << start_node << " (Distance Vector Routing - Bellman-Ford Algorithm):" << endl;

@@ -90,7 +90,6 @@ void subnetCalculator(const string& network, int newPrefix) {
             vector<int> newSubnetMask = calculateSubnetMask(newPrefix);
             vector<int> networkAddress = calculateNetworkAddress(subnetAddress, newSubnetMask);
 
-            // Display subnet information
             cout << "\nSubnet " << (i + 1) << ":" << endl;
             cout << "  Network Address: " << formatIPAddress(networkAddress) << endl;
             cout << "  Subnet Mask: " << formatIPAddress(newSubnetMask) << endl;
@@ -114,25 +113,21 @@ void subnetCalculator(const string& network, int newPrefix) {
 int main() {
     string network;
     int newPrefix;
-    char choice;  // Variable to store user's choice
+    char choice;  
 
     do {
-        // User input for network (e.g., 192.168.1.0/24)
         cout << "Enter the network address (e.g., 192.168.1.0/24): ";
         cin >> network;
 
-        // User input for new prefix length (e.g., /26)
         cout << "Enter the new prefix length (e.g., 26): ";
         cin >> newPrefix;
 
-        // Call the subnet calculator function
         subnetCalculator(network, newPrefix);
 
-        // Ask user if they want to continue
         cout << "\nDo you want to calculate another subnet? (y/n): ";
         cin >> choice;
 
-    } while (choice == 'y' || choice == 'Y');  // Continue if user inputs 'y' or 'Y'
+    } while (choice == 'y' || choice == 'Y');  
 
     cout << "Exiting the program." << endl;
     return 0;

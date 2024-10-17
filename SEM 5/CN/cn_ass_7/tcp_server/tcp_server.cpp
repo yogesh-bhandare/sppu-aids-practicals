@@ -1,11 +1,14 @@
 #include <iostream>
 #include <winsock2.h>
-#include <ws2tcpip.h>  // For sockaddr_in
-#pragma comment(lib, "ws2_32.lib")  // Link with Winsock library
+#include <ws2tcpip.h>  
+
+using namespace std; 
+
+#pragma comment(lib, "ws2_32.lib")  
 
 void start_tcp_server() {
-    const char* host = "127.0.0.1";  // Localhost
-    const int port = 65432;          // Port to listen on
+    const char* host = "127.0.0.1";  
+    const int port = 65432;          
     WSADATA wsaData;
     SOCKET serverSocket, connSocket;
     sockaddr_in serverAddr, clientAddr;
@@ -14,14 +17,14 @@ void start_tcp_server() {
 
     // Initialize Winsock
     if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
-        std::cerr << "WSAStartup failed.\n";
+        cerr << "WSAStartup failed.\n";
         return;
     }
 
     // Create socket
     serverSocket = socket(AF_INET, SOCK_STREAM, 0);
     if (serverSocket == INVALID_SOCKET) {
-        std::cerr << "Socket creation failed.\n";
+        cerr << "Socket creation failed.\n";
         WSACleanup();
         return;
     }
@@ -33,7 +36,7 @@ void start_tcp_server() {
 
     // Bind the socket
     if (bind(serverSocket, (sockaddr*)&serverAddr, sizeof(serverAddr)) == SOCKET_ERROR) {
-        std::cerr << "Bind failed.\n";
+        cerr << "Bind failed.\n";
         closesocket(serverSocket);
         WSACleanup();
         return;
@@ -41,23 +44,23 @@ void start_tcp_server() {
 
     // Listen for incoming connections
     if (listen(serverSocket, SOMAXCONN) == SOCKET_ERROR) {
-        std::cerr << "Listen failed.\n";
+        cerr << "Listen failed.\n";
         closesocket(serverSocket);
         WSACleanup();
         return;
     }
-    std::cout << "TCP Server listening on " << host << ":" << port << "\n";
+    cout << "TCP Server listening on " << host << ":" << port << "\n";
 
     // Accept a connection
     connSocket = accept(serverSocket, (sockaddr*)&clientAddr, &addrLen);
     if (connSocket == INVALID_SOCKET) {
-        std::cerr << "Accept failed.\n";
+        cerr << "Accept failed.\n";
         closesocket(serverSocket);
         WSACleanup();
         return;
     }
 
-    std::cout << "Connected by client.\n";
+    cout << "Connected by client.\n";
 
     // Receive data from client
     while (true) {
@@ -65,7 +68,7 @@ void start_tcp_server() {
         if (bytesReceived <= 0) {
             break;  // Break on disconnect
         }
-        std::cout << "Received from client: " << std::string(buffer, bytesReceived) << "\n";
+        cout << "Received from client: " << string(buffer, bytesReceived) << "\n";
         send(connSocket, buffer, bytesReceived, 0);  // Echo back the received data
     }
 

@@ -2,11 +2,11 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <fstream>
-#pragma comment(lib, "ws2_32.lib")  // Link with Winsock library
+#pragma comment(lib, "ws2_32.lib")  
 
 void start_server() {
-    const char* host = "127.0.0.1";  // Localhost
-    const int port = 65432;          // Port to listen on
+    const char* host = "127.0.0.1";  
+    const int port = 65432;          
     WSADATA wsaData;
     SOCKET serverSocket, clientSocket;
     sockaddr_in serverAddr, clientAddr;
@@ -20,7 +20,7 @@ void start_server() {
     }
 
     // Create socket
-    serverSocket = socket(AF_INET, SOCK_STREAM, 0);  // TCP socket
+    serverSocket = socket(AF_INET, SOCK_STREAM, 0);  
     if (serverSocket == INVALID_SOCKET) {
         std::cerr << "Socket creation failed.\n";
         WSACleanup();
@@ -29,7 +29,7 @@ void start_server() {
 
     // Setup the server address
     serverAddr.sin_family = AF_INET;
-    serverAddr.sin_addr.s_addr = INADDR_ANY;  // Bind to any available address
+    serverAddr.sin_addr.s_addr = INADDR_ANY;  
     serverAddr.sin_port = htons(port);
 
     // Bind the socket
