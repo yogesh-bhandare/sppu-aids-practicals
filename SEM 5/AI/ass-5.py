@@ -1,37 +1,37 @@
 # 5. Implement Greedy search algorithm for any of the following application: Selection Sort
 class Job:
-    def __init__(self, job_id, deadline, profit):
-        self.job_id = job_id
+    def __init__(self, id, deadline, profit) -> None:
+        self.id = id 
         self.deadline = deadline
         self.profit = profit
 
-def job_scheduling(jobs, n):
+def jobScheduling(jobs):
     jobs.sort(key=lambda x: x.profit, reverse=True)
+    maxi = jobs[0].deadline
+    for i in range(1, len(jobs)):
+        maxi = max(maxi, jobs[i].deadline)
 
-    result = [-1] * n
-    job_sequence = ['-1'] * n
+    slot = [-1] * (maxi+1)
+    countJobs = 0
+    jobProfit = 0
 
-    for job in jobs:
-        for j in range(min(n, job.deadline) - 1, -1, -1):
-            if result[j] == -1:
-                result[j] = job.job_id
-                job_sequence[j] = job.job_id
+    for i in range(len(jobs)):
+        for j in range(jobs[i].deadline, 0, -1):
+            if slot[j] == -1:
+                slot[j] = i
+                countJobs += 1
+                jobProfit += jobs[i].profit
                 break
 
-    total_profit = sum([jobs[i - 1].profit for i in result if i != -1])
-    return job_sequence, total_profit
+    return countJobs, jobProfit
 
 if __name__ == "__main__":
     jobs = [
-        Job(1, 4, 20),
-        Job(2, 1, 10),
-        Job(3, 1, 40),
-        Job(4, 1, 30)
+        Job(1,4,20),
+        Job(2,1,10),
+        Job(3,2,40),
+        Job(4,2,30)
     ]
-    
-    max_deadline = max(job.deadline for job in jobs)
 
-    job_sequence, total_profit = job_scheduling(jobs, max_deadline)
-    
-    print("Job sequence to maximize profit:", job_sequence)
-    print("Total Profit:", total_profit)
+    count, profit = jobScheduling(jobs)
+    print(count, profit)

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Help Desk</title>
+    <title>Medical Help Desk</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,12 +17,42 @@
         h1 {
             color: #f0f0f0;
             text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .landing-page {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 40px;
+        }
+
+        .option {
+            background-color: #2b2b2b;
+            border-radius: 10px;
+            width: 45%;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background-color: #007bff;
+        }
+
+        .option img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
         }
 
         #chat-container {
             background-color: #2b2b2b;
             border-radius: 10px;
             padding: 20px;
+            display: none;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
@@ -97,10 +126,30 @@
         }
     </style>
 </head>
-
 <body>
-    <h1>Hospital Help Desk</h1>
+    <h1>Medical Help Desk</h1>
 
+    <!-- Landing Page -->
+    <div class="landing-page">
+        <div class="option" onclick="predefinedQuestion('appointment scheduling')">
+            <img src="https://img.freepik.com/free-vector/appointment-booking-with-woman-checking-smartphone_23-2148558795.jpg?w=740&t=st=1729433180~exp=1729433780~hmac=53063cfce35bca32ebc8760b2ce7783c09c54719a0fa39d6939c29f7cdc928e4" alt="Appointment">
+            <p>Appointment Scheduling</p>
+        </div>
+        <div class="option" onclick="predefinedQuestion('emergency services')">
+            <img src="https://img.freepik.com/free-vector/emergency-ambulance-concept_23-2148539305.jpg?t=st=1729433227~exp=1729436827~hmac=398aa907a8c5bc242bb2a87707439554ae51bd1f052cf3749273051414795d2e&w=1060" alt="Emergency">
+            <p>Emergency Services</p>
+        </div>
+        <div class="option" onclick="predefinedQuestion('check-in process')">
+            <img src="https://img.freepik.com/free-vector/man-with-big-suitcase-checking-airport_3446-103.jpg?t=st=1729433373~exp=1729436973~hmac=1ace14fa26ec51269c575f99efb3d95bb52284d19934b3d5f9f0015bde62690c&w=740" alt="Check-in">
+            <p>Check-in Process</p>
+        </div>
+        <div class="option" onclick="predefinedQuestion('billing inquiry')">
+            <img src="https://img.freepik.com/free-vector/online-payment-account-credit-card-details-personal-information-financial-transaction-cartoon-character-bank-worker-internet-banking_335657-2379.jpg?t=st=1729433410~exp=1729437010~hmac=559277e29e858d288461af90815908f038d022ceca9c870e8472bac52a651cfc&w=740" alt="Billing">
+            <p>Billing Inquiry</p>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
     <div id="chat-container">
         <div id="chat-messages"></div>
         <input type="text" id="user-input" placeholder="Type your question here...">
@@ -111,19 +160,28 @@
         const chatMessages = document.getElementById('chat-messages');
         const userInput = document.getElementById('user-input');
         const sendButton = document.getElementById('send-button');
+        const chatContainer = document.getElementById('chat-container');
 
+        // Function to add message to chat
         function addMessage(message, isUser = false) {
             const messageElement = document.createElement('div');
             messageElement.classList.add('message');
             messageElement.classList.add(isUser ? 'user-message' : 'bot-message');
-
-
             const textNode = document.createTextNode(message);
             messageElement.appendChild(textNode);
             chatMessages.appendChild(messageElement);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
+        // Send predefined question to chatbot
+        function predefinedQuestion(question) {
+            addMessage(question, true);
+            userInput.value = question;
+            chatContainer.style.display = 'block'; // Show chat container
+            sendMessage();
+        }
+
+        // Send message to server
         async function sendMessage() {
             const message = userInput.value.trim();
             if (message) {
@@ -160,8 +218,7 @@
         });
 
         // Initial greeting
-        addMessage('Welcome to our hotel help desk! How may I assist you today?');
+        addMessage('Welcome to our medical help desk! How may I assist you today?');
     </script>
 </body>
-
 </html>

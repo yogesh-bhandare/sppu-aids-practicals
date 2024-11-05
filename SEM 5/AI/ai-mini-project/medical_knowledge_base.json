@@ -67,6 +67,54 @@
     {
       "problem": "Hi",
       "solution": "Welcome to our hospital help desk! How may we assist you today?"
+    },
+    {
+      "problem": "Hello",
+      "solution": "Hello! How can I help you with your medical needs today?"
+    },
+    {
+      "problem": "Good morning",
+      "solution": "Good morning! How can we assist you at our hospital today?"
+    },
+    {
+      "problem": "Good afternoon",
+      "solution": "Good afternoon! Is there anything we can help you with?"
+    },
+    {
+      "problem": "Good evening",
+      "solution": "Good evening! How may I assist you today?"
+    },
+    {
+      "problem": "Help",
+      "solution": "I’m here to assist you! Please type your question or select a topic."
+    },
+    {
+      "problem": "Thank you",
+      "solution": "You're welcome! Feel free to reach out if you need any further assistance."
+    },
+    {
+      "problem": "What services do you provide?",
+      "solution": "We provide a range of medical services, including general consultations, surgeries, emergency care, and pharmacy services. Let us know what specific service you're looking for!"
+    },
+    {
+      "problem": "Where is the hospital located?",
+      "solution": "Our hospital is located at 123 Medical Avenue. You can find directions on our website or call our help desk for assistance."
+    },
+    {
+      "problem": "How do I contact a specific department?",
+      "solution": "To contact a department, you can dial our main number and request to be transferred or visit our website for direct numbers to each department."
+    },
+    {
+      "problem": "How do I get my test results?",
+      "solution": "You can access your test results via our patient portal, or contact your doctor’s office directly for updates."
+    },
+    {
+      "problem": "How can I pay my bills?",
+      "solution": "You can pay your bills through our billing office, by phone at extension 4567, or online via our patient portal."
+    },
+    {
+      "problem": "How do I get a second opinion?",
+      "solution": "If you'd like to seek a second opinion, please schedule an appointment with one of our specialists. Our staff can help coordinate your care."
     }
   ]
 }
