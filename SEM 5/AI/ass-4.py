@@ -1,53 +1,45 @@
-# 4. Implement a solution for a Constraint Satisfaction Problem using Branch and Bound and Backtracking for a graph coloring problem.
-m = int(input("Enter the total number of colours: "))
-
-g = {}
-
-n = int(input("Enter the total number of edges in graph g: "))
-
-for i in range(n):
-    a, b = map(int, input().split(" "))
-    if g.get(a) == None:
-        g[a] = []
-    g[a].append(b)
-    if g.get(b) == None:
-        g[b] = []
-    g[b].append(a)
-
-print(g)
-
-posCol = ["voilet", "indigo", "blue", "yellow", "green", "orange", "red"]
-
-def canColour(g, n, col, colList):
-    for child in g[n]:
-        if colList[child] == posCol[col]:
+def canColor(g, s, color, colorList, posColors):
+    for child in g[s]:
+        if colorList[child] == posColors[color]:
             return False
-    
     return True
 
-def graphColouring(g, m, v, n, colList):
-    if n == v:
+def graphColouring(g, m, v, s, colorList, posColors):
+    if s == v:
         return True
     
-    for col in range(m):
-        if canColour(g, n, col, colList):
-            colList[n] = posCol[col]
-            if graphColouring(g, m, v, n+1, colList) == True:
+    for color in range(m):
+        if canColor(g, s, color, colorList, posColors):
+            colorList[s] = posColors[color]
+            if graphColouring(g, m, v, s+1, colorList, posColors) == True:
                 return True
-            colList[n] = -1
+            colorList[s] = -1
 
-v = len(g.keys())
-colList = {}
-for i in g.keys():
-    colList[i] = -1
-
-if graphColouring(g, m, v, 0, colList):
-    print(colList)
-else:
-    print(f"Can't perform graph coloring on m({m}) colours")
-
+if __name__ == "__main__":
+    posColors = ["Violet", "Indigo", "Blue", "Yellow", "Green", "Orange", "Red"]
+    m = int(input("Enter Total no. of colors to use: "))
+    g = {}
+    n = int(input("Enter Total number of edges in graph: "))
+    for i in range(n):
+        a, b = map(int, input().split(" "))
+        if g.get(a) == None:
+            g[a] = []
+        g[a].append(b)
+        if g.get(b) == None:
+            g[b] = []
+        g[b].append(a)
+    colorList = {}
+    for i in g.keys():
+        colorList[i] = -1
+    v = len(g.keys())
+    if graphColouring(g, m, v, 0, colorList, posColors):
+        print(colorList)
+    else:
+        print(f"Graph Coloring not possible for {m} colors")
 
 """
+3
+6
 0 1
 0 2
 0 3
