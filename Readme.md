@@ -1,4 +1,4 @@
-# SPPU AIDS Practicals (Semester 2 to 5)
+# SPPU AIDS Practicals (Semester 2 to 6)
 
 Welcome to the collection of practical assignments for the **Artificial Intelligence and Data Science (AIDS)** program at **Savitribai Phule Pune University (SPPU)**. This repository serves as a one-stop solution for students seeking practicals, assignments, and projects from **Semester 3 to Semester 5**.
 
@@ -8,8 +8,8 @@ Welcome to the collection of practical assignments for the **Artificial Intellig
 - [Semester 3](#semester-3)
 - [Semester 4](#semester-4)
 - [Semester 5](#semester-5)
-<!-- - [Semester 6](#semester-6)
-- [Semester 7](#semester-7)
+- [Semester 6](#semester-6)
+<!--- [Semester 7](#semester-7)
 - [Semester 8](#semester-8)
 - [Contributing](#contributing)
 - [License](#license) -->
