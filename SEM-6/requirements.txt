@@ -1,5 +1,11 @@
-jupyter
+# jupyter
 numpy
 matplotlib
-pandas
-scikit-learn
+# pandas
+# scikit-learn
+# nltk
+# seaborn
+tensorflow
+opencv-python
+# pycryptodome
+# crypto
