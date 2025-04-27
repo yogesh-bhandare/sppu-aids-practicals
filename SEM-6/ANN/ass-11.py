@@ -1,4 +1,4 @@
-# Group C-1
+# Group C-1 How to Train a Neural Network with TensorFlow/Pytorch and evaluation of logistic regression using tensorflow
 import tensorflow as tf
 import numpy as np
 import cv2

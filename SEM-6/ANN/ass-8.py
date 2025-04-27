@@ -1,4 +1,4 @@
-# Group B-2
+# Group B-2 Write a python program to illustrate ART neural network.
 import numpy as np
 
 

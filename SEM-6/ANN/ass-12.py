@@ -1,31 +1,32 @@
-# Group C-2
+# Group C-2 TensorFlow implementation of CNN
 import tensorflow as tf
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.datasets import load_breast_cancer
+from tensorflow.keras import layers, models
+from tensorflow.keras.datasets import cifar10
+from tensorflow.keras.utils import to_categorical
 
-# Load the breast cancer dataset
-data = load_breast_cancer()
-X_train, X_test, y_train, y_test = train_test_split(
-    data.data, data.target, test_size=0.2, random_state=42
+(train_images, train_labels), (test_images, test_labels) = cifar10.load_data()
+train_images, test_images = train_images / 255.0, test_images / 255.0
+train_labels = to_categorical(train_labels, 10)
+test_labels = to_categorical(test_labels, 10)
+
+model = models.Sequential(
+    [
+        layers.Conv2D(32, (3, 3), activation="relu", input_shape=(32, 32, 3)),
+        layers.MaxPooling2D((2, 2)),
+        layers.Flatten(),
+        layers.Dense(64, activation="relu"),
+        layers.Dense(10, activation="softmax"),
+    ]
 )
 
-# Scale the input features
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
+model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
 
-# Build the model
-model = tf.keras.models.Sequential(
-    [tf.keras.layers.Dense(1, activation="sigmoid", input_shape=(X_train.shape[1],))]
+history = model.fit(
+    train_images,
+    train_labels,
+    epochs=10,
+    batch_size=64,
+    validation_data=(test_images, test_labels),
 )
-
-# Compile the model
-model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
-
-# Train the model
-model.fit(X_train, y_train, epochs=5)
-
-# Evaluate the model
-test_loss, test_accuracy = model.evaluate(X_test, y_test)
-print("Accuracy:", test_accuracy)
+test_loss, test_acc = model.evaluate(test_images, test_labels)
+print(f"Test accuracy: {test_acc * 100:.2f}%")

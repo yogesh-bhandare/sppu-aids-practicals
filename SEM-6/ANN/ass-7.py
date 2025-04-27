@@ -1,4 +1,4 @@
-# Group B-1
+# Group B-1: Write a python program to show Back Propagation Network for XOR function with Binary Input and Output
 import numpy as np
 
 # Define the parameters of the network

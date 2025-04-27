@@ -1,4 +1,4 @@
-# Group A-2
+# Group A-2: Generate ANDNOT function using McCulloch-Pitts neural net by a python program.
 import numpy as np
 
 

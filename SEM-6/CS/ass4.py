@@ -1,88 +1,80 @@
+# Python Program for implementation of RSA Algorithm
+
+
+def power(base, expo, m):
+    res = 1
+    base = base % m
+    while expo > 0:
+        if expo & 1:
+            res = (res * base) % m
+        base = (base * base) % m
+        expo = expo // 2
+    return res
+
+
+# Function to find modular inverse of e modulo phi(n)
+# Here we are calculating phi(n) using Hit and Trial Method
+# but we can optimize it using Extended Euclidean Algorithm
+def modInverse(e, phi):
+    for d in range(2, phi):
+        if (e * d) % phi == 1:
+            return d
+    return -1
+
+
+# RSA Key Generation
+def generateKeys():
+    p = 7919
+    q = 1009
+
+    n = p * q
+    phi = (p - 1) * (q - 1)
+
+    # Choose e, where 1 < e < phi(n) and gcd(e, phi(n)) == 1
+    e = 0
+    for e in range(2, phi):
+        if gcd(e, phi) == 1:
+            break
+
+    # Compute d such that e * d ≡ 1 (mod phi(n))
+    d = modInverse(e, phi)
+
+    return e, d, n
+
+
+# Function to calculate gcd
 def gcd(a, b):
-    """Calculate the Greatest Common Divisor of a and b"""
-    while b:
+    while b != 0:
         a, b = b, a % b
     return a
 
 
-def mod_inverse(a, m):
-    """Calculate the modular multiplicative inverse of a mod m"""
-
-    def extended_gcd(a, b):
-        if a == 0:
-            return b, 0, 1
-        gcd, x1, y1 = extended_gcd(b % a, a)
-        x = y1 - (b // a) * x1
-        y = x1
-        return gcd, x, y
-
-    _, x, _ = extended_gcd(a, m)
-    return (x % m + m) % m
+# Encrypt message using public key (e, n)
+def encrypt(m, e, n):
+    return power(m, e, n)
 
 
-def is_prime(n):
-    """Check if a number is prime"""
-    if n < 2:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
+# Decrypt message using private key (d, n)
+def decrypt(c, d, n):
+    return power(c, d, n)
 
 
-class RSA:
-    def __init__(self, p=61, q=53):
-        """Initialize RSA with two prime numbers"""
-        if not (is_prime(p) and is_prime(q)):
-            raise ValueError("Both p and q must be prime")
-        if p == q:
-            raise ValueError("p and q must be different")
-
-        self.n = p * q
-        self.phi = (p - 1) * (q - 1)
-
-        # Choose e (public exponent)
-        self.e = 17  # Common choice, must be coprime with phi
-        if gcd(self.e, self.phi) != 1:
-            raise ValueError("e must be coprime with phi(n)")
-
-        # Calculate d (private exponent)
-        self.d = mod_inverse(self.e, self.phi)
-
-    def encrypt(self, plaintext):
-        """Encrypt plaintext (integer < n)"""
-        if not 0 <= plaintext < self.n:
-            raise ValueError(f"Plaintext must be between 0 and {self.n - 1}")
-        return pow(plaintext, self.e, self.n)
-
-    def decrypt(self, ciphertext):
-        """Decrypt ciphertext"""
-        if not 0 <= ciphertext < self.n:
-            raise ValueError(f"Ciphertext must be between 0 and {self.n - 1}")
-        return pow(ciphertext, self.d, self.n)
-
-
-def demonstrate_rsa():
-    # Create RSA instance with default primes
-    rsa = RSA()
-
-    # Example message (must be < n)
-    message = 42
-    print(f"Original message: {message}")
-
-    # Encrypt
-    ciphertext = rsa.encrypt(message)
-    print(f"Public key (e, n): ({rsa.e}, {rsa.n})")
-    print(f"Ciphertext: {ciphertext}")
-
-    # Decrypt
-    plaintext = rsa.decrypt(ciphertext)
-    print(f"Private key (d, n): ({rsa.d}, {rsa.n})")
-    print(f"Decrypted message: {plaintext}")
-
-    # Verify
-    print(f"Decryption successful: {plaintext == message}")
-
-
+# Main execution
 if __name__ == "__main__":
-    demonstrate_rsa()
+    # Key Generation
+    e, d, n = generateKeys()
+
+    print(f"Public Key (e, n): ({e}, {n})")
+    print(f"Private Key (d, n): ({d}, {n})")
+
+    # Message
+    M = 123
+    print(f"Original Message: {M}")
+
+    # Encrypt the message
+    C = encrypt(M, e, n)
+    print(f"Encrypted Message: {C}")
+
+    # Decrypt the message
+    decrypted = decrypt(C, d, n)
+    print(f"Decrypted Message: {decrypted}")

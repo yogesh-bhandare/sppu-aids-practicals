@@ -1,31 +1,21 @@
-# Group A-3
+# 3. Write a Python Program using Perceptron Neural Network to recognise even and odd numbers. Given numbers are in ASCII form 0 to 9
 import numpy as np
 
 j = int(input("Enter a Number (0-9): "))
-step_function = lambda x: 1 if x >= 0 else 0
 
 training_data = [
-    {"input": [1, 1, 0, 0, 0, 0], "label": 1},
-    {"input": [1, 1, 0, 0, 0, 1], "label": 0},
-    {"input": [1, 1, 0, 0, 1, 0], "label": 1},
-    {"input": [1, 1, 0, 1, 1, 1], "label": 0},
-    {"input": [1, 1, 0, 1, 0, 0], "label": 1},
-    {"input": [1, 1, 0, 1, 0, 1], "label": 0},
-    {"input": [1, 1, 0, 1, 1, 0], "label": 1},
-    {"input": [1, 1, 0, 1, 1, 1], "label": 0},
-    {"input": [1, 1, 1, 0, 0, 0], "label": 1},
-    {"input": [1, 1, 1, 0, 0, 1], "label": 0},
+    {"input": [int(b) for b in f"{n:06b}"], "label": 1 if n % 2 == 0 else 0}
+    for n in range(10)
 ]
 
-weights = np.array([0, 0, 0, 0, 0, 1])
+weights = np.zeros(6)
 
 for data in training_data:
-    input = np.array(data["input"])
-    label = data["label"]
-    output = step_function(np.dot(input, weights))
-    error = label - output
-    weights += input * error
+    x = np.array(data["input"])
+    y = data["label"]
+    pred = 1 if np.dot(x, weights) >= 0 else 0
+    weights += (y - pred) * x
 
-input = np.array([int(x) for x in list("{0:06b}".format(j))])
-output = "odd" if step_function(np.dot(input, weights)) == 0 else "even"
-print(j, " is ", output)
+x = np.array([int(b) for b in f"{j:06b}"])
+pred = 1 if np.dot(x, weights) >= 0 else 0
+print(j, "is", "even" if pred == 1 else "odd")
