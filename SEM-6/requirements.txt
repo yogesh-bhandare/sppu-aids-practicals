@@ -5,7 +5,3 @@ pandas
 scikit-learn
 nltk
 seaborn
-# tensorflow
-# opencv-python
-# # pycryptodome
-# # crypto

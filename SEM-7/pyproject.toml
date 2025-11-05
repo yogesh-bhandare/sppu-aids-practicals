@@ -1,0 +1,15 @@
+[project]
+name = "sem-7"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.7",
+    "numpy>=2.3.4",
+    "pandas>=2.3.3",
+    "plotly>=6.4.0",
+    "scikit-learn>=1.7.2",
+    "seaborn>=0.13.2",
+]

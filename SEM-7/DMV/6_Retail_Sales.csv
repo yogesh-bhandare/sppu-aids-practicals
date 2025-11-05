@@ -1,0 +1,150 @@
+﻿customer_id,Product_category,quantity_sold,Sales_Amount,transaction_date,Region
+C241288,Clothing,5,1500.4,05-08-2022,Kanyon
+C111565,Shoes,3,1800.51,12-12-2021,Forum Istanbul
+C266599,Clothing,1,300.08,09-11-2021,Metrocity
+C988172,Shoes,5,3000.85,16-05-2021,Metropol AVM
+C189076,Books,4,60.6,24-10-2021,Kanyon
+C657758,Clothing,5,1500.4,24-05-2022,Forum Istanbul
+C151197,Cosmetics,1,40.66,13-03-2022,Istinye Park
+C176086,Clothing,2,600.16,13-01-2021,Mall of Istanbul
+C159642,Clothing,3,900.24,04-11-2021,Metrocity
+C283361,Clothing,2,600.16,22-08-2021,Kanyon
+C240286,Food & Beverage,2,10.46,25-12-2022,Metrocity
+C191708,Books,1,15.15,28-10-2022,Emaar Square Mall
+C225330,Toys,4,143.36,31-07-2022,Metrocity
+C312861,Clothing,2,600.16,17-11-2022,Cevahir AVM
+C555402,Clothing,2,600.16,03-06-2022,Kanyon
+C362288,Shoes,5,3000.85,07-11-2021,Viaport Outlet
+C300786,Books,2,30.3,16-01-2021,Metrocity
+C330667,Food & Beverage,3,15.69,05-01-2022,Zorlu Center
+C218149,Clothing,2,600.16,26-07-2021,Metropol AVM
+C196845,Toys,4,143.36,07-03-2023,Cevahir AVM
+C220180,Clothing,1,300.08,15-02-2023,Emaar Square Mall
+C125696,Food & Beverage,1,5.23,01-05-2021,Cevahir AVM
+C322947,Clothing,2,600.16,18-06-2022,Cevahir AVM
+C313348,Technology,5,5250,26-10-2021,Kanyon
+C204553,Books,5,75.75,16-12-2022,Metrocity
+C285161,Toys,2,71.68,16-05-2021,Istinye Park
+C289625,Cosmetics,5,203.3,20-04-2022,Mall of Istanbul
+C192344,Shoes,4,2400.68,10-10-2022,Emaar Square Mall
+C447138,Shoes,3,1800.51,23-08-2022,Cevahir AVM
+C251229,Cosmetics,3,121.98,29-04-2021,Istinye Park
+C159164,Toys,3,107.52,04-07-2022,Mall of Istanbul
+C501658,Clothing,1,300.08,21-11-2021,Emaar Square Mall
+C176727,Shoes,3,1800.51,23-02-2022,Kanyon
+C232624,Clothing,4,1200.32,11-07-2021,Metrocity
+C164092,Shoes,4,2400.68,30-08-2022,Zorlu Center
+C276887,Food & Beverage,1,5.23,04-01-2023,Emaar Square Mall
+C245456,Clothing,5,1500.4,21-06-2022,Kanyon
+C450287,Clothing,2,600.16,08-07-2022,Metrocity
+C204279,Clothing,2,600.16,27-02-2022,Kanyon
+C452806,Clothing,1,300.08,19-12-2022,Metropol AVM
+C716788,Food & Beverage,3,15.69,10-09-2021,Zorlu Center
+C155059,Cosmetics,2,81.32,14-02-2022,Metropol AVM
+C306662,Cosmetics,3,121.98,28-04-2022,Metrocity
+C607615,Shoes,4,2400.68,20-06-2022,Metrocity
+C120164,Shoes,3,1800.51,21-04-2022,Kanyon
+C134449,Books,5,75.75,09-12-2022,Zorlu Center
+C317818,Cosmetics,3,121.98,12-01-2023,Mall of Istanbul
+C241642,Clothing,4,1200.32,07-11-2022,Zorlu Center
+C126436,Cosmetics,3,121.98,07-02-2022,Zorlu Center
+C653385,Books,5,75.75,13-06-2021,Forum Istanbul
+C227070,Cosmetics,5,203.3,23-08-2021,Emaar Square Mall
+C317478,Books,3,45.45,24-02-2023,Istinye Park
+C237330,Cosmetics,2,81.32,12-01-2023,Istinye Park
+C626042,Technology,4,4200,22-02-2022,Metrocity
+C133687,Food & Beverage,3,15.69,12-03-2021,Viaport Outlet
+C841663,Clothing,1,300.08,02-01-2022,Istinye Park
+C213742,Toys,2,71.68,26-11-2021,Kanyon
+C962515,Clothing,4,1200.32,21-04-2021,Kanyon
+C112279,Food & Beverage,3,15.69,23-06-2021,Kanyon
+C158837,Books,4,60.6,14-12-2021,Kanyon
+C336576,Clothing,5,1500.4,09-06-2022,Mall of Istanbul
+C716161,Clothing,1,300.08,26-11-2021,Kanyon
+C439382,Clothing,4,1200.32,05-02-2021,Kanyon
+C123427,Clothing,4,1200.32,06-03-2022,Mall of Istanbul
+C224743,Cosmetics,4,162.64,09-05-2022,Metropol AVM
+C119549,Toys,3,107.52,17-10-2022,Mall of Istanbul
+C187266,Food & Beverage,3,15.69,22-01-2022,Cevahir AVM
+C173084,Souvenir,5,58.65,14-03-2021,Istinye Park
+C126956,Cosmetics,5,203.3,27-04-2022,Metrocity
+C236859,Technology,5,5250,19-11-2021,Mall of Istanbul
+C309926,Shoes,5,3000.85,10-09-2022,Forum Istanbul
+C493252,Cosmetics,4,162.64,04-09-2021,Kanyon
+C109871,Food & Beverage,5,26.15,21-08-2022,Mall of Istanbul
+C136117,Shoes,5,3000.85,02-10-2021,Emaar Square Mall
+C258404,Toys,3,107.52,07-01-2023,Emaar Square Mall
+C169749,Souvenir,3,35.19,08-06-2021,Cevahir AVM
+C199947,Clothing,5,1500.4,17-04-2021,Kanyon
+C135790,Shoes,4,2400.68,04-09-2021,Metrocity
+C606418,Food & Beverage,5,26.15,20-07-2022,Mall of Istanbul
+C111611,Food & Beverage,4,20.92,14-07-2021,Istinye Park
+C679476,Toys,2,71.68,01-11-2022,Emaar Square Mall
+C542025,Cosmetics,4,162.64,06-01-2023,Metrocity
+C168491,Souvenir,2,23.46,25-03-2021,Kanyon
+C169650,Clothing,2,600.16,08-09-2022,Istinye Park
+C158160,Food & Beverage,1,5.23,18-02-2022,Mall of Istanbul
+C552345,Food & Beverage,2,10.46,22-04-2021,Kanyon
+C218383,Clothing,5,1500.4,15-10-2022,Zorlu Center
+C309438,Shoes,5,3000.85,07-04-2022,Mall of Istanbul
+C253905,Food & Beverage,1,5.23,07-06-2022,Mall of Istanbul
+C992677,Clothing,4,1200.32,22-01-2023,Metropol AVM
+C584700,Technology,2,2100,22-08-2022,Kanyon
+C157070,Toys,1,35.84,03-10-2021,Kanyon
+C177975,Souvenir,5,58.65,29-07-2021,Kanyon
+C830576,Cosmetics,2,81.32,16-12-2022,Metrocity
+C807389,Toys,3,107.52,03-06-2021,Mall of Istanbul
+C277842,Clothing,2,600.16,17-12-2021,Cevahir AVM
+C183011,Clothing,5,1500.4,31-12-2022,Metropol AVM
+C567813,Food & Beverage,3,15.69,09-08-2022,Forum Istanbul
+C282974,Clothing,3,900.24,31-07-2022,Kanyon
+C181972,Food & Beverage,4,20.92,04-05-2021,Mall of Istanbul
+C189493,Technology,3,3150,25-05-2022,Viaport Outlet
+C242748,Food & Beverage,3,15.69,23-12-2022,Kanyon
+C324683,Clothing,4,1200.32,24-01-2023,Kanyon
+C307921,Clothing,5,1500.4,14-09-2021,Viaport Outlet
+C152549,Cosmetics,1,40.66,04-02-2022,Metrocity
+C111832,Food & Beverage,5,26.15,06-01-2022,Metrocity
+C204174,Clothing,5,1500.4,01-02-2022,Mall of Istanbul
+C279370,Clothing,5,1500.4,26-10-2022,Cevahir AVM
+C907582,Clothing,5,1500.4,21-09-2022,Mall of Istanbul
+C166635,Cosmetics,4,162.64,12-12-2021,Istinye Park
+C276043,Clothing,4,1200.32,21-08-2021,Zorlu Center
+C282643,Food & Beverage,3,15.69,08-10-2021,Emaar Square Mall
+C820515,Books,3,45.45,22-11-2021,Kanyon
+C331761,Clothing,1,300.08,19-03-2022,Kanyon
+C326893,Souvenir,5,58.65,19-10-2022,Istinye Park
+C306395,Clothing,2,600.16,12-01-2022,Viaport Outlet
+C885344,Toys,4,143.36,07-06-2021,Metrocity
+C112750,Clothing,1,300.08,15-01-2023,Forum Istanbul
+C274870,Clothing,4,1200.32,11-11-2021,Kanyon
+C199864,Clothing,2,600.16,21-09-2022,Istinye Park
+C997380,Cosmetics,4,162.64,30-05-2021,Metrocity
+C132002,Clothing,1,300.08,23-12-2021,Metropol AVM
+C255058,Technology,2,2100,30-04-2022,Kanyon
+C271799,Toys,4,143.36,07-06-2021,Forum Istanbul
+C765620,Toys,5,179.2,21-02-2022,Kanyon
+C891545,Clothing,3,900.24,26-08-2021,Emaar Square Mall
+C519513,Food & Beverage,5,26.15,15-12-2021,Metrocity
+C125624,Clothing,1,300.08,20-02-2021,Mall of Istanbul
+C658980,Clothing,2,600.16,08-10-2021,Kanyon
+C319231,Clothing,3,900.24,01-08-2022,Mall of Istanbul
+C150594,Clothing,4,1200.32,09-09-2021,Kanyon
+C846730,Food & Beverage,5,26.15,25-10-2021,Metrocity
+C249877,Food & Beverage,1,5.23,14-12-2021,Metropol AVM
+C200826,Clothing,5,1500.4,20-06-2021,Kanyon
+C263874,Clothing,1,300.08,07-04-2021,Metropol AVM
+C663463,Books,4,60.6,05-12-2021,Metrocity
+C134370,Cosmetics,1,40.66,25-05-2021,Zorlu Center
+C310642,Books,3,45.45,12-04-2022,Metrocity
+C651699,Clothing,4,1200.32,16-12-2021,Mall of Istanbul
+C989693,Technology,2,2100,21-02-2021,Metropol AVM
+C123581,Clothing,3,900.24,26-10-2021,Mall of Istanbul
+C192446,Toys,1,35.84,18-12-2022,Mall of Istanbul
+C143343,Clothing,1,300.08,19-09-2022,Metrocity
+C223343,Clothing,2,600.16,01-02-2023,Kanyon
+C309082,Food & Beverage,3,15.69,05-10-2022,Mall of Istanbul
+C236365,Cosmetics,2,81.32,28-11-2021,Kanyon
+C178734,Shoes,5,3000.85,03-08-2021,Kanyon
+C223010,Clothing,4,1200.32,12-10-2022,Metropol AVM
+C289933,Food & Beverage,2,10.46,28-09-2022,Kanyon
