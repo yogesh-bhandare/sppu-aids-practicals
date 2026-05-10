@@ -1,58 +1,107 @@
-import random
+import numpy as np
+from sklearn.datasets import load_iris
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPClassifier
 
-from deap import algorithms, base, creator, tools
+# Load Iris dataset
+data = load_iris()
+x = data.data
+y = data.target
 
 
-# define evaluation function
-def evaluate(individual):
-    return (random.random(),)
-
-
-# Define genetic algorithm parameters
-POPULATION_SIZE = 10
-GENERATIONS = 5
-
-# Create types for fitness and individuals in the genetic algorithm
-creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
-creator.create("Individual", list, fitness=creator.FitnessMin)
-
-# Initialize toolbox
-toolbox = base.Toolbox()
-
-# Define attributes and individuals
-toolbox.register("attr_neurons", random.randint, 1, 100)  # Example: number of neurons
-toolbox.register("attr_layers", random.randint, 1, 5)  # Example: number of layers
-toolbox.register(
-    "individual",
-    tools.initCycle,
-    creator.Individual,
-    (toolbox.attr_neurons, toolbox.attr_layers),
-    n=1,
+# Train-test split
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y, test_size=0.2, random_state=42
 )
-toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
-# Genetic operators
-toolbox.register("evaluate", evaluate)
-toolbox.register("mate", tools.cxTwoPoint)
-toolbox.register("mutate", tools.mutUniformInt, low=1, up=100, indpb=0.2)
-toolbox.register("select", tools.selTournament, tournsize=3)
+# GA settings
+pop_size = 20
+generations = 30
+mutation_rate = 0.1
 
-# Create initial population
-population = toolbox.population(n=POPULATION_SIZE)
 
-# Run the genetic algorithm
-for gen in range(GENERATIONS):
-    offspring = algorithms.varAnd(population, toolbox, cxpb=0.5, mutpb=0.1)
+# Initialize population
+def initialize_population():
+    population = []
+    for _ in range(pop_size):
+        hidden_neurons = np.random.randint(5, 50)
+        learning_rate = np.random.uniform(0.001, 0.1)
+        population.append([hidden_neurons, learning_rate])
+    return population
 
-    fitnesses = toolbox.map(toolbox.evaluate, offspring)
-    for ind, fit in zip(offspring, fitnesses):
-        ind.fitness.values = fit
 
-    population = toolbox.select(offspring, k=len(population))
+# Fitness function
+def fitness(individual):
+    hidden, lr = individual
+    model = MLPClassifier(
+        hidden_layer_sizes=(hidden,),
+        learning_rate_init=lr,
+        max_iter=300,
+        random_state=42,
+    )
+    model.fit(x_train, y_train)
+    predictions = model.predict(x_test)
+    accuracy = accuracy_score(y_test, predictions)
+    return 1 - accuracy
 
-# Get the best individual from the final population
-best_individual = tools.selBest(population, k=1)[0]
-best_params = best_individual
 
-# Print the best parameters found
-print("Best Parameters:", best_params)
+# Selection
+def selection(population):
+    sorted_population = sorted(population, key=lambda ind: fitness(ind))
+    return sorted_population[: pop_size // 2]
+
+
+# Crossover
+def crossover(parent1, parent2):
+    return [
+        np.random.choice([parent1[0], parent2[0]]),
+        np.random.choice([parent1[1], parent2[1]]),
+    ]
+
+
+# Mutation
+def mutate(individual):
+    if np.random.rand() < mutation_rate:
+        individual[0] = np.random.randint(5, 50)
+    if np.random.rand() < mutation_rate:
+        individual[1] = np.random.uniform(0.001, 0.1)
+    return individual
+
+
+# GA optimization
+population = initialize_population()
+
+for generation in range(generations):
+    selected = selection(population)
+    new_population = selected.copy()
+
+    while len(new_population) < pop_size:
+        idx1, idx2 = np.random.choice(len(selected), 2)
+        child = crossover(selected[idx1], selected[idx2])
+        child = mutate(child)
+        new_population.append(child)
+
+    population = new_population
+
+    best = min(population, key=lambda ind: fitness(ind))
+    print(f"Generation {generation + 1}, Best Accuracy: {1 - fitness(best)}")
+
+# Best individual
+best_individual = min(population, key=lambda ind: fitness(ind))
+
+print("\nOptimal Hidden Neurons:", best_individual[0])
+print("Optimal Learning Rate:", best_individual[1])
+
+# Final model
+final_model = MLPClassifier(
+    hidden_layer_sizes=(best_individual[0],),
+    learning_rate_init=best_individual[1],
+    max_iter=500,
+    random_state=42,
+)
+
+final_model.fit(x_train, y_train)
+final_predictions = final_model.predict(x_test)
+
+print("\nFinal Accuracy:", accuracy_score(y_test, final_predictions))
