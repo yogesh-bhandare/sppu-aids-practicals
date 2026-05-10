@@ -1,8 +1,8 @@
 # client
-import xmlrpc.client
+from xmlrpc.client import ServerProxy
 
 # Create an XML-RPC client
-with xmlrpc.client.ServerProxy("http://localhost:8000/RPC2") as proxy:
+with ServerProxy("http://localhost:8000/RPC2") as proxy:
     try:
         # Replace 5 with the desired integer value
         # input_value = 5
